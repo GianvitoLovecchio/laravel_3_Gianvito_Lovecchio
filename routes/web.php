@@ -1,7 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+namespace App\Http\Controllers;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ArticleController;
+
+Route::get('/', [PublicController::class, 'goToHomepage'])->name('homepage');
+
+Route::get('articoli', [ArticleController::class, 'goToArticoli'])->name('articoli');
+
+Route::get('articoli/dettaglio/{id}', [ArticleController::class, 'goToDettaglioArticolo'])->name('dettaglio_articoli');
