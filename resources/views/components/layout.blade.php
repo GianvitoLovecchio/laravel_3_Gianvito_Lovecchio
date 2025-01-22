@@ -17,7 +17,16 @@
 
 <body>
 
+    {{-- MOSTRA UN MESSAGGIO DI SUCCESSO NEL CASO IN CUI LA MAIL SIA STATA CORRETTAMENTE INVIATA ED AVVIENE IL REINDIRIZZAMENTO ALL'HOMEPAGE --}}
     {{ $slot }}
+    @if (session('emailSent'))
+        <div class="alert alert-success alert-dismissible fade show text-center mx-auto w-25" role="alert">
+            {{session('emailSent')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+
 
 </body>
 
